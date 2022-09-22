@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar usuário</title>
+</head>
+<body>
+
+    <div>
+        <h3>Edite o usuário:</h3>
+        <h3>{{ user.id }} -  {{ user.name }}</h3>
+        <form action="{% url 'update' user.id %}" method="POST">
+            {% csrf_token %}
+            <input type="text" name="name" placeholder="Nome" value="{{ user.name }}">
+            <input type="text" name="email" placeholder="E-mail" value="{{ user.email }}">
+            <input type="number" name="age" placeholder="Idade" value="{{ user.age }}">
+    
+            <button type="submit">Salvar</button>
+    
+        </form>
+    </div>
+    
+</body>
+</html>
